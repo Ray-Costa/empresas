@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  :root {
+    --brand100: "hsl(230, 57%, 50%)";
+    --brand200: "hsl(230, 68%, 54%)";
+    --gray100: "hsl(210, 11%, 15%)";
+    --gray200: "hsl(210, 10%, 23%)";
+    --gray300: "hsl(210, 9%, 31%)";
+    --gray400: "hsl(210, 7%, 56%)";
+    --gray500: "hsl(210, 11%, 71%)";
+    --gray600: "hsl(210, 16%, 93%)";
+    --gray700: "hsl(210, 17%, 95%)";
+    --gray800: "hsl(210, 17%, 98%)";
+    --gray900: "hsl(200, 100%, 99%)";
+    --alert100: "hsl(349, 57%, 50%)";
+    --alert200: "hsl(349, 69%, 55%)";
+    --sucess100: "hsl(162, 88%, 26%)";
+    --cor-branco01: #FFFFFF;
+    --cor-cinza01: #212529;
+    --cor-cinza02: #343A40;
+    --cor-cinza03: #ADB5BD;
+    --cor-cinza04: #E9ECEF;
+    --cor-cinza07:rgb(140, 142, 144)F;
+    --cor-cinza05: #F8F9FA;
+    --cor-cinza06: #E9ECEF;
+    --cor-branco: #FFFFFF;
+    --cor-brand01: #364FC7;
+    --cor-brand02: #3B56D9;
+    --cor-alert1:#4200FF;
+    --cor-alert2:#DB3C58;
+    --box-shadow-color:rgba(0,0,0,0.25);
+  
+    --border-tbn:none
+    
+  }
+  
+  body {
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  header,
+  main {
+    width: 80vw;
+    margin: auto;
+  }
