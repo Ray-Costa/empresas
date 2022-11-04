@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles/globalStyle.css">
+        <link rel="stylesheet" href="/styles/login.css">
+        <title>Login- Empresa</title>
+    </head>
+    <body>
+        <header class="header-home-login">
+            <div class="container-login">
+                <div class="div-icone-nome-login">
+                    <img classe="imagem-icone-login" src="/src/Ellipse.png" alt="">
+                    <h3 class="nome-kenzie-empresa-login">Kenzie Empresas</h3>
+                </div>
+                <div class="div-header-btns-login">
+                    <button id="btn-login-home" class="btn-header-login-home">Home</button>
+                    <button id="pag-login-cadastro" class="btn-header-cadastro-login">Cadastro</button>
+                </div>
+            </div>
+        </header>
+        <div class="div-linha-horizontal-login"></div>
+        <main class="main-login">
+            <div class="modal-login">
+                <div class="div-modal-login">
+                    <h3 class="nome-login">Login</h3>
+                    <p class="descricao-login">Preencha os campos para realizar login</p>
+                    <form class="form" id="form-login">
+                        <div class="inputs-login">
+                            <div>
+                                <input id="email" class="input-email-login" type="email" placeholder="Seu e-mail">
+                            </div>
+                            <div>
+                                <input class="input-senha-login" type="password" id="password" placeholder="Sua senha">
+                                <span  id="span-input" class="span-input display-none">E-mail ou senha inválidos</span>
+                            </div>
+                            <div class="btns-login">
+                                <button type="submit" id="btn-login-redirecionar" class="btn-login-login">Login</button>
+                                <p class="ou">ou</p>
+                                <button id="cadastra-se-pag-login" class="btn-login-cadastrar">Cadastra-se</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </main>
+
+
+    </body>
+    <script type="module" src="/scripts/login.js"></script>
+</html>

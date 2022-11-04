@@ -1,0 +1,19 @@
+.div-render-departamento{
+    background-color: cornflowerblue;
+   
+   
+     
+}
+.section-departamento{
+    overflow-y: scroll;
+    height: 10vh;
+    margin-top: 10%;
+   
+   
+
+}
+.div-depart{
+    background-color: coral;
+    display: flex;
+    flex-flow: column;
+}

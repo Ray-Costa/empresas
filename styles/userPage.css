@@ -1,0 +1,103 @@
+.header-userP{
+    height: 60px;
+    display: flex; 
+
+}
+.container-userP{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row;
+    justify-content: space-between;
+    width: 100%; 
+
+}
+.div-icone-nome-userP{
+    display: flex;
+    gap: 10px;
+
+}
+.imagem-icone-userP{
+
+}
+.nome-kenzie-empresa-userP{
+    font-size: 13px;
+
+}
+.btn-header-logout-userP{
+    width: 90px;
+    height: 30px;
+    cursor: pointer;
+    color: var(--cor-alert1);
+    border: 1px solid var(--cor-alert1);
+    background-color: #FFFFFF;
+    cursor: pointer; 
+
+}
+.div-linha-horizontal-userP{
+    background-color:rgb(239, 236, 236);
+    height: 2px;
+}
+.div-page-user{
+    margin-top: 15px;
+    display: flex;
+    flex-flow: column;
+    border: 2px solid #e8ecf0;
+
+}
+.div-username{
+    margin-top: 20px;
+
+}
+.nome-username{
+    font-size: 18px ;
+    margin-left: 10px;
+
+}
+.tag-div-user{
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row;
+    gap: 70px;
+    margin-bottom: 20px;
+}
+.tag-btn-editor{
+    background-image: url("/src/Vector.png");
+    display: flex;
+    height: 30px;
+    width: 30px;
+    border: none;
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    
+}
+.tag-div-btn-editor{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    margin-top: -25px;
+    margin-left: 20px;
+    border: none;
+    width: 43%;
+}
+
+.nome-nao-contratado{
+    font-size: 25px;
+
+}
+.div-page-nao-contratado{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    border: 2px solid #e8ecf0;
+    background-color:var(--cor-cinza05);
+}
+.tag-div-user{
+    margin-left: 10px;
+}
+.transparencia{
+    background-color: rgba(70, 35, 167, 0.13)
+}

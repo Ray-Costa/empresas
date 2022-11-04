@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles/globalStyle.css">
+        <link rel="stylesheet" href="/styles/userPage.css">
+        <link rel="stylesheet" href="/styles/modalUserPage.css">
+        <title>User-Page</title>
+    </head>
+    <body class="body">
+        <header class="header-userP">
+            <div class="container-userP">
+                <div class="div-icone-nome-userP">
+                    <img classe="imagem-icone-userP" src="/src/Ellipse.png" alt="">
+                    <h3 class="nome-kenzie-empresa-userP">Kenzie Empresas</h3>
+                </div>
+                <div class="div-header-btn-userP">
+                    <button id="btn-logout-userP" class="btn-header-logout-userP">Logout</button>
+                </div>
+            </div>
+        </header>
+        <div class="div-linha-horizontal-userP"></div>
+        <main>
+            <div class="div-page-user">
+                <div class="div-username">
+                    <h1 class="nome-username">USERNAME</h1>
+                    <div id="div-userP" class="div-userPage"></div>
+                </div>
+
+            </div>
+            <div  id="div-page-nao-contratado" class="div-page-nao-contratado">
+                <!-- <div class="div-descricao-nao-contratado">
+                    <h1 class="nome-nao-contratado">Você ainda não foi contratado</h1>
+                </div> -->
+            </div>
+            <section id="modal-section" class="section-modal">
+                <div class="div-modal-user" id="div-modal-user"></div>
+            </section>
+        </main>
+    </body>
+    <script type="module" src="/scripts/userPage.js"></script>
+</html>

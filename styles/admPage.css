@@ -1,0 +1,44 @@
+.header-user-admin{
+    height: 60px;
+    display: flex;
+
+}
+.container-user-admin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row;
+    justify-content: space-between;
+    width: 100%; 
+
+}
+.div-icone-nome-user-admin{
+    display: flex;
+    gap: 10px;
+
+}
+.imagem-icone-user-admin{
+
+}
+.nome-kenzie-empresa-user-admin{
+    font-size: 13px;
+
+}
+.div-header-btn-user-admin{
+
+
+}
+.btn-header-logout-user-admin{
+    width: 90px;
+    height: 30px;
+    cursor: pointer;
+    color: var(--cor-alert1);
+    border: 1px solid var(--cor-alert1);
+    background-color: #FFFFFF;
+    cursor: pointer; 
+
+}
+.div-linha-horizontal-login-adm-page{
+    background-color:rgb(239, 236, 236);
+    height: 2px;
+}

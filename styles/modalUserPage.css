@@ -1,0 +1,66 @@
+.section-modal{
+    
+   
+
+}
+.div-modal-user{
+    position: fixed;
+    z-index: 1;
+    padding: 0;
+    left: 35%;
+    right: 15%;
+    top: 26%;
+    border-radius: 8px;
+    text-align: justify;
+    background-color: white;
+    width: 30%;
+}
+.div-btnX{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+.btnX{
+    font-size: 20px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    
+}
+.editar-Perfil{
+    font-size: 25px ;
+    margin-bottom: 10px;
+    margin-left: 20px;
+   
+
+}
+.div-modal-user{
+  
+
+}
+.form-inputs{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin-top: 10px;
+     
+}
+.input-nome-user, .input-senha-user,.input-email-user,.btn-editar-perfil{
+    height: 35px;
+    margin-left: 20px;
+    width: 90%;
+    margin-bottom: 10px;
+    border:2px solid #e8ecf0; ;
+    color: darkgray;
+   
+}
+.btn-editar-perfil{
+    color: #FFFF;
+    background-color: var(--cor-alert1);
+    border: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+

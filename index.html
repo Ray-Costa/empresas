@@ -16,8 +16,8 @@
                     <h3 class="nome-kenzie-empresa">Kenzie Empresas</h3>
                 </div>
                 <div class="div-header-btns">
-                    <button class="btn-header-login">Login</button>
-                    <button class="btn-header-cadastro">Cadastro</button>
+                    <button id="btn-login" class="btn-header-login">Login</button>
+                    <button id="btn-cadastro-header-home"class="btn-header-cadastro">Cadastro</button>
                 </div>
             </div>
         </header>
@@ -30,21 +30,21 @@
                     </div> 
                 </section>
                 <section class="render-selecionar-setor">
-                    <div class="div-itens-select">
-                        <h4 class="nome-selecionar">Selecionar Setor</h4>
-                        <div class="image-setinha-home">
-                        <img class="img-clicavel-seta" src="src/setinhaHome.png" alt="">
+                    <div class="box">
+                        <select class="select-home" id="setor-select">
+                            <option class="option-select" value="" disabled selected>Selecionar Setor</option>
+                        </select>  
                     </div>
+                    <div class="div-render-empresas">
+                        <ul class="ul-render-empresa"></ul>
+                    </div>
+                    
                 </section>
-                   
-                   
-                 </div>
-    
             </div>
            
         </main>
-
-    </body>
+        <script type="module" src="/scripts/home.js"></script>
+    </body> 
 </html>
 
 
