@@ -1,0 +1,79 @@
+.div-btn-dep{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.btn-dep{
+    font-size: 15px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+
+}
+.div-modal-user-Dep{
+    position: fixed;
+    z-index: 1;
+    padding: 0;
+    left: 35%;
+    right: 15%;
+    top: 26%;
+    border-radius: 8px;
+    text-align: justify;
+    background-color: white;
+    width: 30%;
+   
+}
+.editar-perfil-dep{
+    margin-top: 15px;
+    font-size: 20px;
+    margin-left: 20px;
+
+}
+.form-inputs{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 20px;
+    gap: 10px;
+
+
+}
+.div-input-nome-dep{
+
+}
+.input-nome-dep,.input-descricao-dep,.btn-criar-depart{
+    height: 30px;
+    width: 90%;
+
+}
+.input-nome-dep{
+    border: 2px solid darkgray;
+    padding-left: 10px;
+
+}
+.div-input-descricao{
+
+}
+.input-descricao-dep{
+    border: 2px solid darkgray;
+    padding-left: 10px;
+   
+
+}
+.div-btn-criar-depart{
+
+}
+.btn-criar-depart{
+  background-color: var(--cor-alert1);
+  border: none;
+  color: #FFFF;
+  margin-bottom: 30px;
+  cursor: pointer;
+
+}
+.transparencia{
+    background-color: rgba(70, 35, 167, 0.13)
+}

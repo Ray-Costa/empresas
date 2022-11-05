@@ -1,19 +1,137 @@
 .div-render-departamento{
-    background-color: cornflowerblue;
    
-   
-     
+
+       
 }
 .section-departamento{
     overflow-y: scroll;
-    height: 10vh;
-    margin-top: 10%;
+    height: 25vh;
+    margin-top: 2%;
+    background-color:var(--cor-cinza05); 
    
    
+}
+
+.div-depart{
+    margin-top: 7px;
+    height: 155px;
+    width: 400px;
+    display: flex;
+    flex-flow: column;    
+    
+}   
+.nome-departamento,.descricao-departamento,.nome-company{
+    font-size: 13px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.linha-div{
+    height: 2px;
+    background-color:var(--cor-alert1);
+    display: flex;
+    margin-top: 7px;
+    
+}
+.tag-li{
+    background-color: var(--cor-branco);
+    list-style: none;
+    margin-left: 10%;  
+    display: flex;
+    flex-flow: row; 
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+   
+          
+}
+.ul-render-departamento{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    
+    
+}
+.div-btns-icons{
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-flow: row;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.btn-olho{
+    background-image: url("/src/olho.png");
+    display: flex;
+    height: 40px;
+    width: 50px;
+    border: none;
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+.btn-editar{
+    background-image: url("/src/editar.png");
+    display: flex;
+    height: 40px;
+    width: 50px;
+    border: none;
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    cursor: pointer;
 
 }
-.div-depart{
-    background-color: coral;
+.btn-excluir{
+    background-image: url("/src/deletar.png");
     display: flex;
-    flex-flow: column;
+    height: 40px;
+    width: 50px;
+    border: none;
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    cursor: pointer;
+
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--cor-alert1); 
+    border-radius: 1px;
+  } 
+  .tag-H1-Nome-Depart{
+    height: 30px;
+  }
+ 
+  .btn-criar-empresa{
+    background-color: var(--cor-alert1);
+    color: #FFFFFF;
+    border: none;
+    height: 30px;
+    width: 80px;
+    text-align:center;
+    cursor: pointer;
+
+
+  }
+  .div-section-select-empresa{
+    display: flex;
+    flex-flow: row;
+  }
+  .div-depart-select-btn{
+    display: flex;
+    margin-top: 90px;
+    width: 100%;
+    justify-content:space-between ;
+    flex-flow: row;
+    
+  }
+  .select-home-empresa{
+    border-radius: 10px;
+    width: 180px;
+    text-align: center;
+    height: 25px;
+  }
+
+  

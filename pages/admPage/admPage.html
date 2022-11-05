@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/styles/globalStyle.css">
     <link rel="stylesheet" href="/styles/admPage.css">
     <link rel="stylesheet" href="/styles/sectionDepart.css">
+    <link rel="stylesheet" href="/styles/modalAdmin.css">
     <title>Admin-Page</title>
 </head>
 <body>
@@ -23,11 +24,25 @@
     </header>
     <div class="div-linha-horizontal-login-adm-page"></div>
     <main>
+        <section class="section-select-empresa">
+            <div class="div-section-select-empresa">
+                <div class="box-empresa">
+                    <select class="select-home-empresa" id="setor-select-empresa">
+                        <option class="option-select-empresa" value="" disabled selected>Selecionar Empresa</option>
+                    </select>  
+                </div>
+
+            </div>
+        </section>
         <section class="section-departamento">
             <div class="div-render-departamento">
                 <ul class="ul-render-departamento"></ul>
             </div>
         </section>
+        <section id="modal-section-criar-depart" class="section-modal-criar-depart">
+            <div class="div-modal-user-criar-depart" id="div-modal-user-criar-depart"></div>
+        </section>
+        
     </main>
     
 </body>
