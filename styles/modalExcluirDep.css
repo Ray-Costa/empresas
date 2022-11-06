@@ -1,0 +1,43 @@
+.div-btn-dep{
+
+}
+.btn-dep{
+    font-size: 20px;
+    cursor: pointer;
+
+}
+.div-modal-excluir-dep{
+    position: fixed;
+    z-index: 1;
+    padding: 0;
+    left: 18%;
+    right: 25%;
+    top: 24%;
+    border-radius: 8px;
+    text-align: justify;
+    background-color: white;
+    width: 40%;
+
+
+}
+.descricao-dep{
+    font-size: 25px;
+    width: 70%;
+    margin-left: 10%;
+
+}
+.div-btn-confirmar{
+    margin-left: 10%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.btn-confirmar{
+    height: 30px;
+    width: 90%;
+    border: none;
+    background-color:#4BA036 ;
+    color: #FFFF;
+    cursor: pointer;
+
+
+}

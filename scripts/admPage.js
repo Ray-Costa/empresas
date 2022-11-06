@@ -1,13 +1,13 @@
 import {
+    renderDepartamento
+} from "./listarDepartamento.js";
+import {
     getTodosOsDepartamentos,
     getTodosDepartamentosDeUmaEmpresa,
     listarEmpresas,
-
-
+    criarDepartamento,
+   
 } from "./request.js";
-
-
-const sectionDepartamneto = document.querySelector(".section-departamento")
 
 const btnLogoutAdmPage = document.getElementById("btn-logout-user-admin")
 btnLogoutAdmPage.addEventListener('click', (evento) => {
@@ -16,79 +16,21 @@ btnLogoutAdmPage.addEventListener('click', (evento) => {
     window.location.href = "/index.html"
 })
 
-const renderizandoDepart = document.querySelector(".ul-render-departamento")
 const depart = await getTodosOsDepartamentos();
-
-const renderDepartamento = async (depart) => {
-    try {
-        renderizandoDepart.innerHTML = ``;
-        depart.forEach((elemento) => {
-            const departamentoCompany = elemento.companies
-
-            const tagLi = document.createElement("li")
-            const divDepart = document.createElement("div")
-            const nomeDepartamneto = document.createElement("h4")
-            const descricaoDepartamento = document.createElement("p")
-            const nomeCompany = document.createElement("p")
-            const divBtnsIcon = document.createElement("div")
-            const btnolho = document.createElement("button")
-            const btneditar = document.createElement("button")
-            const btnExcluir = document.createElement("button")
-            const divLinha = document.createElement("div")
-
-
-            nomeDepartamneto.innerText = elemento.name
-            descricaoDepartamento.innerText = elemento.description
-            nomeCompany.innerText = departamentoCompany.name
-
-
-            divDepart.className = "div-depart"
-            nomeDepartamneto.className = "nome-departamento"
-            descricaoDepartamento.className = "descricao-departamento"
-            nomeCompany.className = "nome-company"
-            divBtnsIcon.className = "div-btns-icons"
-            btnolho.className = "btn-olho"
-            btneditar.className = "btn-editar"
-            btnExcluir.className = "btn-excluir"
-            divLinha.className = "linha-div"
-            tagLi.className = "tag-li"
-
-            tagLi.appendChild(divDepart)
-            divDepart.appendChild(nomeDepartamneto)
-            divDepart.appendChild(descricaoDepartamento)
-            divDepart.appendChild(nomeCompany)
-            divDepart.appendChild(divBtnsIcon)
-            divBtnsIcon.appendChild(btnolho)
-            divBtnsIcon.appendChild(btneditar)
-            divBtnsIcon.appendChild(btnExcluir)
-            divDepart.appendChild(divLinha)
-
-            renderizandoDepart.appendChild(tagLi)
-
-
-        })
-    } catch (error) {
-
-    }
-};
 await renderDepartamento(depart);
-
 
 const sectionEmpresaAdmin = document.querySelector(".div-section-select-empresa")
 const selectSelecionarEmpresa = document.querySelector(".box-empresa")
-
-const empresaDepartamento = await getTodosDepartamentosDeUmaEmpresa()
 const divDepartSelectBtn = document.createElement("div")
 const tagH1NomeDepart = document.createElement("h3")
 const divBtnCriar = document.createElement("div")
-const btnCriarEmpresa = document.createElement("button")
-
+const btnCriarDepartamento = document.createElement("button")
 
 tagH1NomeDepart.innerText = "Departamentos"
-btnCriarEmpresa.innerText = " + Criar"
-const criarDepartModal = document.getElementById("div-modal-user-criar-depart")
+btnCriarDepartamento.innerText = " + Criar"
 
-btnCriarEmpresa.addEventListener('click', (evento) => {
+const criarDepartModal = document.getElementById("div-modal-user-criar-depart")
+btnCriarDepartamento.addEventListener('click', async (evento) => {
     criarDepartModal.innerHTML = ``;
     evento.preventDefault()
     const body = document.querySelector('body')
@@ -102,16 +44,22 @@ btnCriarEmpresa.addEventListener('click', (evento) => {
     const divInputNomeDep = document.createElement("div")
     const inputNomeDep = document.createElement("input")
     const divInputDescricao = document.createElement("div")
-    const InputDescriDep = document.createElement("input")
+    const inputDescricaoDep = document.createElement("input")
     const divBtnCriarDepartamento = document.createElement("div")
     const btnCriarDepart = document.createElement("button")
     const divSelectModal = document.createElement("div")
-
+    divSelectModal.innerHTML = `
+    <div class="box-empresa">
+        <select class="select-criar-departamento" id="select-criar-departamento">
+            <option class="option-select-empresa" value="" disabled selected>Selecionar Empresa</option>
+        </select>  
+    </div>
+    `
 
     btnXDep.innerText = "X"
     editarPerfilDep.innerText = "Criar Departamento"
     inputNomeDep.placeholder = "Nome do departamento"
-    InputDescriDep.placeholder = "Descrição"
+    inputDescricaoDep.placeholder = "Descrição"
     btnCriarDepart.innerText = "Criar o departamento"
     btnCriarDepart.type = "submit"
 
@@ -123,7 +71,7 @@ btnCriarEmpresa.addEventListener('click', (evento) => {
     divInputNomeDep.className = "div-input-nome-dep"
     inputNomeDep.className = "input-nome-dep"
     divInputDescricao.className = "div-input-descricao"
-    InputDescriDep.className = "input-descricao-dep"
+    inputDescricaoDep.className = "input-descricao-dep"
     divBtnCriarDepartamento.className = "div-btn-criar-depart"
     btnCriarDepart.className = "btn-criar-depart"
 
@@ -131,14 +79,19 @@ btnCriarEmpresa.addEventListener('click', (evento) => {
         evento.preventDefault()
         criarDepartModal.remove()
         body.classList.remove('transparencia')
-
     })
-    btnCriarDepart.addEventListener('click', (event) => {
+
+    btnCriarDepart.addEventListener('click', async (event) => {
         evento.preventDefault()
-        console.log("renata")
+        const opcaoValorEmpresa = setorSelecionadoEmpresa.options[setorSelecionadoEmpresa.selectedIndex].value;
+        await criarDepartamento({
+            name: inputNomeDep.value,
+            description: inputDescricaoDep.value,
+            company_uuid: opcaoValorEmpresa
+        })
+        criarDepartModal.remove()
+        body.classList.remove('transparencia')
     })
-
-
 
     criarDepartModal.appendChild(divModalUserDep)
     divModalUserDep.appendChild(divBtnXDep)
@@ -147,37 +100,31 @@ btnCriarEmpresa.addEventListener('click', (evento) => {
     divModalUserDep.appendChild(formInputsDep)
     formInputsDep.appendChild(divInputNomeDep)
     divInputNomeDep.appendChild(inputNomeDep)
-
     formInputsDep.appendChild(divInputDescricao)
-    divInputDescricao.appendChild(InputDescriDep)
+    divInputDescricao.appendChild(inputDescricaoDep)
+    formInputsDep.appendChild(divSelectModal)
     formInputsDep.appendChild(divBtnCriarDepartamento)
     divBtnCriarDepartamento.appendChild(btnCriarDepart)
 
     document.getElementsByTagName('body')[0].appendChild(criarDepartModal)
 
-
-
+    const setorSelecionadoEmpresa = document.getElementById("select-criar-departamento");
+    await adicionarEmpresasNoSelect(setorSelecionadoEmpresa);
 })
 
 
 tagH1NomeDepart.className = "tag-H1-Nome-Depart"
-btnCriarEmpresa.className = "btn-criar-empresa"
+btnCriarDepartamento.className = "btn-criar-empresa"
 divBtnCriar.className = "div-btn-criar"
 divDepartSelectBtn.className = "div-depart-select-btn"
 
 divDepartSelectBtn.appendChild(tagH1NomeDepart)
 divDepartSelectBtn.appendChild(selectSelecionarEmpresa)
 divDepartSelectBtn.appendChild(divBtnCriar)
-divBtnCriar.appendChild(btnCriarEmpresa)
+divBtnCriar.appendChild(btnCriarDepartamento)
 
 sectionEmpresaAdmin.appendChild(divDepartSelectBtn)
 
-const setorSelecionadoEmpresa = document.getElementById("setor-select-empresa")
-
-setorSelecionadoEmpresa.addEventListener('change', (event) => {
-    const opcaoValorEmpresa = setorSelecionadoEmpresa.options[setorSelecionadoEmpresa.selectedIndex].value;
-    filtrarDepartamentosAPartirDeEmpresa(opcaoValorEmpresa)
-})
 
 const filtrarDepartamentosAPartirDeEmpresa = async (empresaID) => {
     try {
@@ -190,15 +137,29 @@ const filtrarDepartamentosAPartirDeEmpresa = async (empresaID) => {
 
 const mostrarEmpresa = async () => {
     try {
-        const seletorEmpresa = await listarEmpresas();
-        seletorEmpresa.forEach((elemento) => {
-            const empresaNome = elemento.name
-            const empresaID = elemento.uuid;
-
-            setorSelecionadoEmpresa.appendChild(new Option(empresaNome, empresaID))
-        })
+        const setorSelecionadoEmpresa = document.getElementById("setor-select-empresa");
+        listenerParaFiltrarDepartamentosPorEmpresa(setorSelecionadoEmpresa);
+        await adicionarEmpresasNoSelect(setorSelecionadoEmpresa);
     } catch (error) {
-
+        console.error(error);
     }
 };
 await mostrarEmpresa();
+
+async function adicionarEmpresasNoSelect(setorSelecionadoEmpresa) {
+    const empresas = await listarEmpresas();
+    empresas.forEach((elemento) => {
+        const empresaNome = elemento.name;
+        const empresaID = elemento.uuid;
+        setorSelecionadoEmpresa.appendChild(new Option(empresaNome, empresaID));
+    });
+}
+
+function listenerParaFiltrarDepartamentosPorEmpresa(setorSelecionadoEmpresa) {
+    setorSelecionadoEmpresa.addEventListener('change', (event) => {
+        const opcaoValorEmpresa = setorSelecionadoEmpresa.options[setorSelecionadoEmpresa.selectedIndex].value;
+        filtrarDepartamentosAPartirDeEmpresa(opcaoValorEmpresa);
+    });
+    return setorSelecionadoEmpresa;
+}
+

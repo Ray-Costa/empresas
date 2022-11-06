@@ -1,0 +1,142 @@
+.tag-div {
+    position: fixed;
+    z-index: 1;
+    padding-left: 0px;
+    left: 5%;
+    right: 5%;
+    border-radius: 8px;
+    text-align: justify;
+    background-color: white;
+    min-height: 300px;
+    top: 18%;
+}
+
+.tag-div-BtnX {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.tag-btnX {
+    font-size: 25px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    margin-top: 10px;
+
+}
+
+.div-nome-depart {
+    margin-bottom: 20px;
+    margin-left: 5%;
+
+
+}
+
+.nome-depart {
+    font-size: 28px;
+
+
+}
+
+.div-desc {
+    margin-top: 15px;
+    margin-left: 5%;
+
+}
+
+.tag-H5 {}
+
+.nome-empresa-pert {
+    width: 30%;
+    margin-top: -20px;
+}
+
+.div-Btn-Contratar {
+    display: flex;
+    justify-content: end;
+}
+
+.btn-contratar {
+    height: 35px;
+    border: none;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    background-color: #4BA036;
+    width: 115px;
+    color: #FFFF;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tag-descricai-depart {
+    font-size: 18px;
+    margin-left: 5%;
+
+
+}
+
+.div-descricao-input {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-right: 20px;
+
+}
+
+.select-visualizar-departamento {
+    height: 40px;
+    width: 300px;
+    border: 2px solid #dcddde;
+    color: darkgray;
+    padding-left: 10px;
+}
+
+.btn-desligar-funcionario {
+    height: 30px;
+    width: 25%;
+    border: 1px solid #CE4646;
+    color: #CE4646;
+    background-color: white;
+    margin-top: 10px;
+    text-align: center;
+    align-self: center;
+    cursor: pointer;
+}
+
+.section-funcionarios {
+    background-color: var(--cor-cinza05);
+    margin-left: 5%;
+    overflow-x: scroll;
+}
+
+.ul-render-funcionarios {
+    display: flex;
+    flex-flow: row;
+}
+
+.div-funcionario {
+    margin-top: 7px;
+    width: 250px;
+    display: flex;
+    flex-flow: column;
+}
+
+.nome-funcionario,
+.descricao-funcionario {
+    font-size: 13px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.div-lista-funcionarios {
+    margin-bottom: 30px;
+}
+
+.li-funcionarios {
+    background-color: var(--cor-branco);
+    list-style: none;
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: 25px;
+}

@@ -1,18 +1,19 @@
-.div-btn-dep{
+.div-btn-dep {
     margin-top: 10px;
     display: flex;
     justify-content: flex-end;
     margin-right: 20px;
 }
 
-.btn-dep{
+.btn-dep {
     font-size: 15px;
     border: none;
     background-color: white;
     cursor: pointer;
 
 }
-.div-modal-user-Dep{
+
+.div-modal-user-Dep {
     position: fixed;
     z-index: 1;
     padding: 0;
@@ -23,15 +24,17 @@
     text-align: justify;
     background-color: white;
     width: 30%;
-   
+
 }
-.editar-perfil-dep{
+
+.editar-perfil-dep {
     margin-top: 15px;
     font-size: 20px;
     margin-left: 20px;
 
 }
-.form-inputs{
+
+.form-inputs {
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -41,39 +44,51 @@
 
 
 }
-.div-input-nome-dep{
 
-}
-.input-nome-dep,.input-descricao-dep,.btn-criar-depart{
-    height: 30px;
+.div-input-nome-dep {}
+
+.input-nome-dep,
+.input-descricao-dep,
+.btn-criar-depart,.select-criar-departamento{
+    height: 40px;
     width: 90%;
 
 }
-.input-nome-dep{
+.select-criar-departamento{
+    padding-left: 10px;
+    border: 2px solid darkgray;
+    color:rgb(129, 127, 127) ;
+    
+
+}
+
+
+.input-nome-dep {
     border: 2px solid darkgray;
     padding-left: 10px;
 
 }
-.div-input-descricao{
 
-}
-.input-descricao-dep{
+.div-input-descricao {}
+
+.input-descricao-dep {
     border: 2px solid darkgray;
     padding-left: 10px;
-   
+
 
 }
-.div-btn-criar-depart{
+
+.div-btn-criar-depart {}
+
+.btn-criar-depart {
+    background-color: var(--cor-alert1);
+    border: none;
+    color: #FFFF;
+    margin-bottom: 30px;
+    cursor: pointer;
 
 }
-.btn-criar-depart{
-  background-color: var(--cor-alert1);
-  border: none;
-  color: #FFFF;
-  margin-bottom: 30px;
-  cursor: pointer;
 
-}
-.transparencia{
+.transparencia {
     background-color: rgba(70, 35, 167, 0.13)
 }

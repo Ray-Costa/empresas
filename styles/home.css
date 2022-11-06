@@ -1,27 +1,30 @@
-.div-icone-nome{
+.div-icone-nome {
     display: flex;
     gap: 10px;
-       
+
 }
-.imagem-icone{
-  
-}
-.header-home{
+
+.imagem-icone {}
+
+.header-home {
     height: 60px;
-    display: flex;      
+    display: flex;
 }
-.container{
+
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: row;
     justify-content: space-between;
-    width: 100%; 
+    width: 100%;
 }
-.nome-kenzie-empresa{
+
+.nome-kenzie-empresa {
     font-size: 13px;
 }
-.btn-header-login{
+
+.btn-header-login {
     width: 90px;
     height: 30px;
     cursor: pointer;
@@ -29,80 +32,92 @@
     border: 1px solid var(--cor-alert1);
     background-color: #FFFFFF;
 }
-.btn-header-cadastro{
+
+.btn-header-cadastro {
     width: 90px;
     height: 30px;
-    background-color: var( --cor-alert1);
+    background-color: var(--cor-alert1);
     color: var(--cor-branco);
     border: none;
-    cursor: pointer;  
+    cursor: pointer;
 }
-.div-header-btns{
+
+.div-header-btns {
     display: flex;
     gap: 10px;
-    
+
 }
-.div-linha-horizontal{
-    background-color:rgb(239, 236, 236);
+
+.div-linha-horizontal {
+    background-color: rgb(239, 236, 236);
     height: 2px;
 }
-.div-section-image{
-    
-}
-.div-itens-select{
+
+.div-section-image {}
+
+.div-itens-select {
     background-color: var(--cor-alert1);
     height: 40px;
-}.div-sections-home{
+}
+
+.div-sections-home {
     display: flex;
     margin-top: 40px;
     gap: 20px;
-  
+
 }
-.render-selecionar-setor{
+
+.render-selecionar-setor {
     width: 50%;
-    background-color:var(--cor-cinza05); 
-   
+    background-color: var(--cor-cinza05);
 }
-.div-itens-select{
+
+.div-itens-select {
     display: flex;
     justify-content: space-around;
     justify-content: center;
     justify-content: flex-end;
     gap: 35%;
-   
-}
-.section-main{
-    width: 50%;
-}
-.img-home{
-    width: 100%;
-}
-.nome-selecionar{
-   color: var(--cor-branco);
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   font-size: 20px;
-   font-weight: 400;
-   line-height: 30px;
 
 }
-.image-setinha-home{
-   margin-right: 30px;
-  
+
+.section-main {
+    width: 50%;
 }
-.seta-clicavel{
-     height: 15px;
+
+.img-home {
+    width: 100%;
+}
+
+.nome-selecionar {
+    color: var(--cor-branco);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+
+}
+
+.image-setinha-home {
+    margin-right: 30px;
+
+}
+
+.seta-clicavel {
+    height: 15px;
     margin-top: 15px;
     margin-right: 10px;
     cursor: pointer;
     opacity: 3;
     background-color: var(--cor-alert1);
     color: #FFFFFF;
-    border: none; 
-   
+    border: none;
+
 }
-.nome-selecionar-setor-home{
+
+.nome-selecionar-setor-home {
     color: var(--cor-branco);
     font-size: 20px;
     font-weight: 400;
@@ -110,24 +125,27 @@
     justify-content: center;
     align-items: center;
 }
-.box select{
-    background-color:var(--cor-alert1) ;
+
+.box select {
+    background-color: var(--cor-alert1);
     color: var(--cor-branco);
     width: 100%;
     height: 40px;
     font-size: 20px;
     font-weight: 400;
     font-weight: normal;
-    box-shadow: 0 5px 25px;   
+    box-shadow: 0 5px 25px;
 }
-.tagLi{
+
+.tagLi {
     list-style: none;
     width: 80%;
-    margin-left: 40px;  
+    margin-left: 40px;
     display: flex;
-    flex-flow: column;  
+    flex-flow: column;
 }
-.div-setor{
+
+.div-setor {
     background-color: var(--cor-branco);
     margin-top: 15px;
     height: 125px;
@@ -135,37 +153,43 @@
     flex-flow: column;
     gap: 15px;
 }
-.linha-empresa{
+
+.linha-empresa {
     height: 2px;
-    background-color:var(--cor-alert1);
+    background-color: var(--cor-alert1);
 }
-.nome-setor-empresa{
+
+.nome-setor-empresa {
     margin-left: 20px;
     font-size: 16px;
     margin-top: 10px;
- 
+
 
 }
-.tag-horario{
+
+.tag-horario {
     margin-left: 20px;
 
 }
-.tag-setor{
+
+.tag-setor {
     margin-left: 20px;
 
 }
-.ul-render-empresa{
-   
+
+.ul-render-empresa {}
+
+.div-render-empresas {
+    overflow-y: scroll;
+    height: 58vh;
+
 }
-.div-render-empresas{
-     overflow-y: scroll;
-    height: 58vh; 
-     
-}
+
 .div-render-empresas::-webkit-scrollbar {
     display: none;
 }
-.tag-setor{
+
+.tag-setor {
     width: 100px;
     border: 1px solid var(--cor-alert1);
     border-radius: 15px;
@@ -175,5 +199,3 @@
     align-items: center;
     justify-content: center;
 }
-
-

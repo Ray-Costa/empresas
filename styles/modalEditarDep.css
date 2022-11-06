@@ -1,0 +1,76 @@
+.transparencia {
+    background-color: rgba(70, 35, 167, 0.13)
+}
+.div-btn-dep{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+
+}
+.btn-dep{
+    font-size: 25px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    margin-top: 10px;
+
+}
+.div-modal-editar-dep{
+    position: fixed;
+    z-index: 1;
+    padding: 0;
+    left: 18%;
+    right: 25%;
+    top: 26%;
+    border-radius: 8px;
+    text-align: justify;
+    background-color: white;
+    width: 40%;
+
+}
+.editar-dep{
+    font-size: 32px;
+    margin-left:10% ;
+
+}
+.form-input-dep-editar{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left:10% ;
+    gap: 10px;
+
+}
+.div-input-editar-dep{
+    
+
+}
+.input-nome-dep-editar{
+    height: 150px;
+    width: 90%;
+    padding-left: 20px;
+    border: 2px solid darkgray;
+    padding-left: 10px;
+    font-size: 15px;
+    
+
+
+}
+.div-btn-salvar{
+
+}
+.btn-salvar{
+    background-color: var(--cor-alert1);
+    border: none;
+    color: #FFFF;
+    margin-bottom: 30px;
+    cursor: pointer;
+    width: 81%;
+    margin-left:10% ;
+    height: 40px;
+    margin-top: 10px;
+    font-size: 20px;
+
+}

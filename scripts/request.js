@@ -1,4 +1,3 @@
-
 const baseUrl = "http://localhost:6278"
 const listarSetoresPath = '/sectors';
 const listarTodasEmpresasPath = '/companies';
@@ -7,7 +6,10 @@ const buscarInformacoesFuncionarioPath = '/users/profile'
 const atualizarInformFuncPath = '/users'
 const tipoDeUsuarioPath = '/auth/validate_user'
 const todosDepartamentosPath = '/departments'
-
+const usuarioSemDepartamentopath = '/admin/out_of_work'
+const contratarFuncionarioPath = '/departments/hire/'
+const listarFuncMesmoDepartPath = '/users'
+const desligarFuncionarioPath = '/departments/dismiss/'
 
 async function listarTodosSetores() {
     try {
@@ -54,17 +56,17 @@ async function listarEmpresas() {
 
 async function listarEmpresasPorSetor(setor) {
     try {
-        const request = await fetch(`http://localhost:6278/companies/${setor}`,{
+        const request = await fetch(`http://localhost:6278/companies/${setor}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
             },
         })
-       
+
         if (request.ok) {
             const response = await request.json()
             return response;
-            
+
         } else {
             throw new Error('unauthorized');
         }
@@ -93,7 +95,7 @@ async function login({
             const response = await request.json()
             localStorage.setItem("user", JSON.stringify(response))
             return response;
-           
+
         } else {
             throw new Error('unauthorized');
         }
@@ -104,13 +106,13 @@ async function login({
     }
 }
 
-async function getInformacoesUsuario(){
+async function getInformacoesUsuario() {
     try {
         const token = JSON.parse(localStorage.getItem('user')).token
         const request = await fetch(baseUrl + buscarInformacoesFuncionarioPath, {
             method: "GET",
             headers: {
-                 Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json"
             },
         })
@@ -210,7 +212,7 @@ async function getTodosOsDepartamentos() {
 async function getTodosDepartamentosDeUmaEmpresa(idDepart) {
     try {
         const token = JSON.parse(localStorage.getItem('user')).token
-        const request = await fetch(`http://localhost:6278/departments/${idDepart}`,{
+        const request = await fetch(`http://localhost:6278/departments/${idDepart}`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -230,20 +232,226 @@ async function getTodosDepartamentosDeUmaEmpresa(idDepart) {
     }
 }
 
-export{
+async function removerDepartamento({
+    idDoDepartamento
+}) {
+    try {
+        const token = JSON.parse(localStorage.getItem('user')).token
+        const request = await fetch(`http://localhost:6278/departments/${idDoDepartamento}`, {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+        })
 
+        if (!request.ok) {
+            throw new Error('unauthorized');
+        }
+
+    } catch (err) {
+        console.log(err)
+        throw err;
+    }
+}
+
+async function atualizarDepartamento({
+    idDoDepartamento,
+    description
+}) {
+    try {
+        const token = JSON.parse(localStorage.getItem('user')).token
+        const request = await fetch(`http://localhost:6278/departments/${idDoDepartamento}`, {
+            method: "PATCH",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                description
+            })
+        })
+        if (!request.ok) {
+            throw new Error('unauthorized');
+        }
+
+    } catch (err) {
+        console.log(err)
+        throw err;
+    }
+}
+
+async function criarDepartamento({
+    name,
+    description,
+    company_uuid
+}) {
+    try {
+        const token = JSON.parse(localStorage.getItem('user')).token
+        const request = await fetch(`http://localhost:6278/departments`, {
+            method: "POST",
+            body: JSON.stringify({
+                name,
+                description,
+                company_uuid
+            }),
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+        })
+
+        if (request.ok) {
+            const response = await request.json()
+            return response;
+        } else {
+            throw new Error('unauthorized');
+        }
+    } catch (err) {
+        console.log(err)
+        throw err;
+    }
+}
+
+async function listaDeUsuarios() {
+    try {
+        const token = JSON.parse(localStorage.getItem('user')).token
+        const request = await fetch(`http://localhost:6278/users`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+        })
+
+        if (request.ok) {
+            const response = await request.json()
+            return response;
+        } else {
+            throw new Error('unauthorized');
+        }
+    } catch (err) {
+        console.log(err)
+        throw err;
+    }
+}
+
+async function getUsuarioSemDepartamento() {
+    try {
+        const token = JSON.parse(localStorage.getItem('user')).token
+        const request = await fetch(baseUrl + usuarioSemDepartamentopath, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+        })
+
+        if (request.ok) {
+            const response = await request.json()
+            return response;
+        } else {
+            throw new Error('unauthorized');
+        }
+    } catch (err) {
+        console.log(err)
+        throw err;
+    }
+}
+
+async function contratarFuncionario({
+    user_uuid,
+    department_uuid
+}) {
+    try {
+        const token = JSON.parse(localStorage.getItem('user')).token
+        const request = await fetch(baseUrl + contratarFuncionarioPath, {
+            method: "PATCH",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                user_uuid,
+                department_uuid
+            })
+        })
+
+        if (request.ok) {
+            const response = await request.json()
+            return response;
+        } else {
+            throw new Error('unauthorized');
+        }
+    } catch (err) {
+        console.log(err)
+        throw err;
+    }
+}
+
+async function listarTodosFuncionariosDoMesmoDepartamento() {
+    try {
+        const token = JSON.parse(localStorage.getItem('user')).token
+        const request = await fetch(baseUrl + listarFuncMesmoDepartPath, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+        })
+
+        if (request.ok) {
+            const response = await request.json()
+            return response;
+        } else {
+            throw new Error('unauthorized');
+        }
+    } catch (err) {
+        console.log(err)
+        throw err;
+    }
+}
+
+async function desligarFuncionario({user_uuid}) {
+    try {
+        const token = JSON.parse(localStorage.getItem('user')).token
+        const request = await fetch(baseUrl + desligarFuncionarioPath + user_uuid, {
+            method: "PATCH",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+        })
+
+        if (request.ok) {
+            const response = await request.json()
+            return response;
+        } else {
+            throw new Error('unauthorized');
+        }
+    } catch (err) {
+        console.log(err)
+        throw err;
+    }
+}
+
+
+export {
+    criarDepartamento,
     listarTodosSetores,
     listarEmpresas,
     listarEmpresasPorSetor,
     login,
     getInformacoesUsuario,
     atualizarInformacoesFuncionario,
-    getTipoDeUsuario, 
-    getTodosDepartamentosDeUmaEmpresa,  
+    getTipoDeUsuario,
+    getTodosDepartamentosDeUmaEmpresa,
     getTodosOsDepartamentos,
+    removerDepartamento,
+    atualizarDepartamento,
+    listaDeUsuarios,
+    getUsuarioSemDepartamento,
+    contratarFuncionario,
+    listarTodosFuncionariosDoMesmoDepartamento,
+    desligarFuncionario
 }
-
-
-
-
-
