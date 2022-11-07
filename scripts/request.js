@@ -10,6 +10,9 @@ const usuarioSemDepartamentopath = '/admin/out_of_work'
 const contratarFuncionarioPath = '/departments/hire/'
 const listarFuncMesmoDepartPath = '/users'
 const desligarFuncionarioPath = '/departments/dismiss/'
+const excluirUsuarioPath = '/admin/delete_user/';
+const criarUsuarioPath = '/auth/register'
+const funcionariosDoMesmoDepartamentoPath = '/users/departments/coworkers'
 
 async function listarTodosSetores() {
     try {
@@ -412,7 +415,9 @@ async function listarTodosFuncionariosDoMesmoDepartamento() {
     }
 }
 
-async function desligarFuncionario({user_uuid}) {
+async function desligarFuncionario({
+    user_uuid
+}) {
     try {
         const token = JSON.parse(localStorage.getItem('user')).token
         const request = await fetch(baseUrl + desligarFuncionarioPath + user_uuid, {
@@ -435,6 +440,93 @@ async function desligarFuncionario({user_uuid}) {
     }
 }
 
+async function excluirUsuario({
+    user_uuid
+}) {
+    try {
+        const token = JSON.parse(localStorage.getItem('user')).token
+        const request = await fetch(baseUrl + excluirUsuarioPath + user_uuid, {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+        })
+
+        if (request.ok) {
+            const response = await request.text()
+            return response;
+        } else {
+            throw new Error('unauthorized');
+        }
+    } catch (err) {
+        console.log(err)
+        throw err;
+    }
+}
+
+async function cadastro({
+    username,
+    password,
+    email,
+    profissional_level,
+    
+    
+}) {
+    try {
+        const request = await fetch(baseUrl + criarUsuarioPath, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username,
+                password,
+                email,
+                profissional_level,
+                
+            })
+        })
+        if (request.ok) {
+            const response = await request.json()
+            localStorage.setItem("user", JSON.stringify(response))
+            return response;
+
+        } else {
+            throw new Error('unauthorized');
+        }
+
+    } catch (err) {
+        console.error('error', err);
+        throw err;
+    }
+}
+
+
+async function listaDeFuncionariosDoMesmoDepartamento() {
+    try {
+        const token = JSON.parse(localStorage.getItem('user')).token
+        const request = await fetch(baseUrl + funcionariosDoMesmoDepartamentoPath, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+        })
+        if (request.ok) {
+            const response = await request.json()
+            return response;
+
+        } else {
+            throw new Error('unauthorized');
+        }
+
+    } catch (err) {
+        console.error('error', err);
+        throw err;
+    }
+}
+
 
 export {
     criarDepartamento,
@@ -453,5 +545,8 @@ export {
     getUsuarioSemDepartamento,
     contratarFuncionario,
     listarTodosFuncionariosDoMesmoDepartamento,
-    desligarFuncionario
+    desligarFuncionario,
+    excluirUsuario,
+    cadastro,
+    listaDeFuncionariosDoMesmoDepartamento
 }

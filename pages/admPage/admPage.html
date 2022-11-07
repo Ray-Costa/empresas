@@ -1,68 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt-Br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/globalStyle.css">
-    <link rel="stylesheet" href="/styles/admPage.css">
-    <link rel="stylesheet" href="/styles/sectionDepart.css">
-    <link rel="stylesheet" href="/styles/modalAdmin.css">
-    <link rel="stylesheet" href="/styles/modalEditarDep.css">
-    <link rel="stylesheet" href="/styles/modalExcluirDep.css">
-    <link rel="stylesheet" href="/styles/modalVisualizar.css">
-    <title>Admin-Page</title>
-</head>
-<body>
-    <header class="header-user-admin">
-        <div class="container-user-admin">
-            <div class="div-icone-nome-user-admin">
-                <img classe="imagem-icone-user-admin" src="/src/Ellipse.png" alt="">
-                <h3 class="nome-kenzie-empresa-user-admin">Kenzie Empresas</h3>
-            </div>
-            <div class="div-header-btn-user-admin">
-                <button id="btn-logout-user-admin" class="btn-header-logout-user-admin">Logout</button>
-            </div>
-        </div>
-    </header>
-    <div class="div-linha-horizontal-login-adm-page"></div>
-    <main>
-        <section class="section-select-empresa">
-            <div class="div-section-select-empresa">
-                <div class="box-empresa">
-                    <select class="select-home-empresa" id="setor-select-empresa">
-                        <option class="option-select-empresa" value="" disabled selected>Selecionar Empresa</option>
-                    </select>  
-                </div>
 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles/globalStyle.css">
+        <link rel="stylesheet" href="/styles/admPage.css">
+        <link rel="stylesheet" href="/styles/sectionDepart.css">
+        <link rel="stylesheet" href="/styles/modalAdmin.css">
+        <link rel="stylesheet" href="/styles/modalEditarDep.css">
+        <link rel="stylesheet" href="/styles/modalExcluirDep.css">
+        <link rel="stylesheet" href="/styles/modalVisualizar.css">
+        <title>Admin-Page</title>
+    </head>
+
+    <body>
+        <header class="header-user-admin">
+            <div class="container-user-admin">
+                <div class="div-icone-nome-user-admin">
+                    <img classe="imagem-icone-user-admin" src="/src/Ellipse.png" alt="">
+                    <h3 class="nome-kenzie-empresa-user-admin">Kenzie Empresas</h3>
+                </div>
+                <div class="div-header-btn-user-admin">
+                    <button id="btn-logout-user-admin" class="btn-header-logout-user-admin">Logout</button>
+                </div>
             </div>
-        </section>
-        <section class="section-departamento">
-            <div class="div-render-departamento">
-                <ul class="ul-render-departamento"></ul>
-            </div>
-        </section>
-        <section id="modal-section-criar-depart" class="section-modal-criar-depart">
-            <div class="div-modal-user-criar-depart" id="div-modal-user-criar-depart"></div>
-        </section>
-        <section id="modal-section-editar-depart" class="section-modal-editar-depart">
-            <div class="div-modal-user-editar-depart" id="div-modal-user-editar-depart"></div>
-        </section>
-        <section id="modal-section-excluir-depart" class="section-modal-excluir-depart">
-            <div class="div-modal-user-excluir-depart" id="div-modal-user-excluir-depart"></div>
-        </section>
-        <section id="modal-section-visualizar-depart" class="section-modal-visualizar-depart">
-            <div class="div-modal-user-visualizar-depart" id="div-modal-user-visualizar-depart"></div>
-            <div>
-                <section>
-                    <div  id="div-cards-usuario" class="div-cards-usuario"></div>
-                </section>
-            </div>
-        </section>
-        
-        
-    </main>
-    
-</body>
-<script type="module" src="/scripts/admPage.js"></script>
+        </header>
+        <div class="div-linha-horizontal-login-adm-page"></div>
+        <main>
+            <section class="section-select-empresa">
+                <div class="div-section-select-empresa">
+                    <div class="box-empresa">
+                        <select class="select-home-empresa" id="setor-select-empresa">
+                            <option class="option-select-empresa" value="" disabled selected>Selecionar Empresa</option>
+                        </select>
+                    </div>
+
+                </div>
+            </section>
+            <section class="section-departamento">
+                <div class="div-render-departamento">
+                    <ul class="ul-render-departamento"></ul>
+                </div>
+            </section>
+            <h3 class="nome-usuarios-cadastrados">Usuários cadastrados</h3>
+            <section class="section-departamento-usuarios-cadastrados">
+                
+                <div class="div-section-departamento-usuario-cadastrados">
+                    <div class="div-render-departamento-usuarios-cadastrados">
+                        <ul class="ul-render-departamento-usuarios-cadastrados"></ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="modal-section-criar-depart" class="section-modal-criar-depart">
+                <div class="div-modal-user-criar-depart" id="div-modal-user-criar-depart"></div>
+            </section>
+            <section id="modal-section-editar-depart" class="section-modal-editar-depart">
+                <div class="div-modal-user-editar-depart" id="div-modal-user-editar-depart"></div>
+            </section>
+            <section id="modal-section-excluir-depart" class="section-modal-excluir-depart">
+                <div class="div-modal-user-excluir-depart" id="div-modal-user-excluir-depart"></div>
+            </section>
+            <section id="modal-section-visualizar-depart" class="section-modal-visualizar-depart">
+                <div class="div-modal-user-visualizar-depart" id="div-modal-user-visualizar-depart"></div>
+                <div>
+                    <section>
+                        <div id="div-cards-usuario" class="div-cards-usuario"></div>
+                    </section>
+                </div>
+            </section>
+        </main>
+    </body>
+    <script type="module" src="/scripts/admPage.js"></script>
+
 </html>

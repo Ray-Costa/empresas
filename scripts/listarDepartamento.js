@@ -5,7 +5,9 @@ import {
     getUsuarioSemDepartamento,
     contratarFuncionario,
     listarTodosFuncionariosDoMesmoDepartamento,
-    desligarFuncionario
+    desligarFuncionario,
+    listaDeUsuarios,
+    excluirUsuario
 } from "./request.js";
 
 export const renderDepartamento = async (depart) => {
@@ -158,47 +160,19 @@ export const renderDepartamento = async (depart) => {
             })
 
             btnEditar.addEventListener('click', editarDepartamentCallback(elemento))
-            const excluirDepartModal = document.getElementById("div-modal-user-excluir-depart")
             btnExcluir.addEventListener('click', (evento) => {
                 evento.preventDefault()
                 const body = document.querySelector('body')
                 body.classList.add('transparencia')
 
-                const divBtnXDep = document.createElement("div")
-                const btnXDep = document.createElement("button")
-                const divModalexcluirDep = document.createElement("div")
-                const descricaoDep = document.createElement("h1")
-                const divBtnConfirmar = document.createElement("div")
-                const btnConfirmar = document.createElement("button")
+                const excluirDepartModal = excluirModalComponente(`Realmente deseja deletar o Departamento Skina Lanches - IT e demitir seus funcionários?`, elemento.uuid);
+                document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeend', excluirDepartModal);
 
-                btnXDep.innerText = "X"
-                descricaoDep.innerText = `Realmente deseja deletar o Departamento ${elemento.name} e demitir seus funcionários?`
-                btnConfirmar.innerText = "Confirmar"
-
-                divBtnXDep.className = "div-btn-dep"
-                btnXDep.className = "btn-dep"
-                divModalexcluirDep.className = "div-modal-excluir-dep"
-                descricaoDep.className = "descricao-dep"
-                divBtnConfirmar.className = "div-btn-confirmar"
-                btnConfirmar.className = "btn-confirmar"
-
-                excluirDepartModal.appendChild(divModalexcluirDep)
-                divModalexcluirDep.appendChild(divBtnXDep)
-                divBtnXDep.appendChild(btnXDep)
-                divModalexcluirDep.appendChild(descricaoDep)
-                divModalexcluirDep.appendChild(divBtnConfirmar)
-                divBtnConfirmar.appendChild(btnConfirmar)
-
-                btnXDep.addEventListener('click', (evento) => {
-                    evento.preventDefault()
-                    excluirDepartModal.remove()
+                document.getElementById(`btn-fechar-modal-${elemento.uuid}`).addEventListener('click', (evento) => {
+                    document.getElementById(`modal-${elemento.uuid}`).remove()
                     body.classList.remove('transparencia')
-
                 })
-
-                document.getElementsByTagName('body')[0].appendChild(excluirDepartModal)
-
-                btnConfirmar.addEventListener('click', removerDepartamentoCallback(elemento, excluirDepartModal))
+                document.getElementById(`btn-confirmar-modal-${elemento.uuid}`).addEventListener('click', removerDepartamentoCallback(elemento))
             })
 
         })
@@ -244,7 +218,7 @@ function editarDepartamentCallback(elemento) {
                 idDoDepartamento: elemento.uuid,
                 description: inputDescricaoDep.value
             })
-            editarDepartModal.remove()
+            divModalUserDep.remove()
             body.classList.remove('transparencia')
             const depart = await getTodosOsDepartamentos();
             renderDepartamento(depart);
@@ -252,7 +226,7 @@ function editarDepartamentCallback(elemento) {
 
         btnXDep.addEventListener('click', (evento) => {
             evento.preventDefault()
-            editarDepartModal.remove()
+            divModalUserDep.remove()
             body.classList.remove('transparencia')
         })
 
@@ -271,19 +245,17 @@ function editarDepartamentCallback(elemento) {
     };
 }
 
-function removerDepartamentoCallback(elemento, excluirDepartModal) {
+function removerDepartamentoCallback(elemento) {
     return async (event) => {
         event.preventDefault();
         await removerDepartamento({
             idDoDepartamento: elemento.uuid
 
         });
-        excluirDepartModal.remove()
-
-
-        //Atualiza a lista de departamentos sem necessidade de recarregar a pagina
+        document.getElementById(`modal-${elemento.uuid}`).remove()
         const depart = await getTodosOsDepartamentos();
         renderDepartamento(depart);
+        document.getElementsByTagName('body')[0].classList.remove('transparencia')
     };
 }
 
@@ -317,7 +289,7 @@ const renderFuncionarioDepart = async (funcionarios, departamento, ul) => {
         funcionarios.forEach((funcionario) => {
             if (funcionario.department_uuid === departamento.uuid) {
                 const btnDesligarFuncionario = `<button id='desligar-${funcionario.uuid}' class="btn-desligar-funcionario">Desligar</button>`;
-                ul.innerHTML += componenteCard(funcionario.username, funcionario.professional_level, departamento.companies.name, btnDesligarFuncionario, funcionario.uuid)
+                ul.insertAdjacentHTML('beforeend', componenteCard(funcionario.username, funcionario.professional_level, departamento.companies.name, btnDesligarFuncionario, funcionario.uuid))
             }
         })
 
@@ -335,5 +307,73 @@ const renderFuncionarioDepart = async (funcionarios, departamento, ul) => {
         })
     } catch (error) {
         console.log(error)
+    }
+}
+
+const usuarios = await listaDeUsuarios();
+
+function renderUsuarios(usuarios) {
+    const ulUsuariosCadastrados = document.querySelector('.ul-render-departamento-usuarios-cadastrados');
+    ulUsuariosCadastrados.innerHTML = ``;
+    usuarios.forEach(usuario => {
+        if (!usuario.is_admin) {
+            const btns = `
+        <div class="div-btns-icons"></button><button class="btn-editar"></button><button id="btn-excluir-${usuario.uuid}" class="btn-excluir"></button></div>
+        `
+            ulUsuariosCadastrados.insertAdjacentHTML('beforeend', componenteCard(usuario.username, usuario.professional_level, ``, btns, usuario.uuid))
+        }
+    })
+}
+
+
+
+function addListenerParaExcluirUsuario(usuarios) {
+    usuarios.forEach(usuario => {
+        const btnExcluir = document.getElementById(`btn-excluir-${usuario.uuid}`);
+        if (btnExcluir) {
+            btnExcluir.addEventListener('click', async (event) => {
+                event.preventDefault();
+                document.getElementsByTagName('body')[0].classList.add('transparencia')
+                const excluirFuncionarioModal = excluirModalComponente(`Realmente deseja deletar o usuário ${usuario.username}?`, usuario.uuid);
+                document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeend', excluirFuncionarioModal);
+
+                document.getElementById(`btn-fechar-modal-${usuario.uuid}`).addEventListener('click', (evento) => {
+                    document.getElementById(`modal-${usuario.uuid}`).remove()
+                    document.getElementsByTagName('body')[0].classList.remove('transparencia')
+                })
+                document.getElementById(`btn-confirmar-modal-${usuario.uuid}`).addEventListener('click', logicaParaRemoverUsuario(usuario))
+            })
+        }
+    })
+}
+
+const excluirModalComponente = (textoDescricao, id) => {
+    return `
+    <div class="div-modal-excluir-dep" id="modal-${id}">
+        <div class="div-btn-dep">
+            <button id="btn-fechar-modal-${id}" class="btn-dep">X</button>
+        </div>
+        <h1 class="descricao-dep">${textoDescricao}</h1>
+        <div class="div-btn-confirmar">
+            <button id="btn-confirmar-modal-${id}" class="btn-confirmar">Confirmar</button>
+        </div>
+    </div>
+    `
+}
+
+renderUsuarios(usuarios)
+addListenerParaExcluirUsuario(usuarios);
+
+function logicaParaRemoverUsuario(usuario) {
+    return async (event) => {
+        event.preventDefault();
+        await excluirUsuario({
+            user_uuid: usuario.uuid
+        });
+        const usuarios = await listaDeUsuarios();
+        renderUsuarios(usuarios);
+        addListenerParaExcluirUsuario(usuarios);
+        document.getElementById(`modal-${usuario.uuid}`).remove()
+        document.getElementsByTagName('body')[0].classList.remove('transparencia')
     }
 }

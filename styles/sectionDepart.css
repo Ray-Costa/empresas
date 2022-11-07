@@ -11,11 +11,10 @@
 
 .div-depart {
   margin-top: 7px;
-  height: 155px;
+  height: 144px;
   width: 400px;
   display: flex;
   flex-flow: column;
-
 }
 
 .nome-departamento,
@@ -37,7 +36,7 @@
 .tag-li {
   background-color: var(--cor-branco);
   list-style: none;
-  margin-left: 10%;
+  margin-left: 4%;
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
@@ -54,13 +53,13 @@
 .div-btns-icons {
   margin-top: 20px;
   display: flex;
-  gap: 10px;
   flex-flow: row;
   justify-content: center;
-  margin-bottom: 10px;
 }
 
 .btn-olho {
+  background-position: center;
+  background-size: 30px;
   background-image: url("/src/olho.png");
   display: flex;
   height: 40px;
@@ -72,6 +71,8 @@
 }
 
 .btn-editar {
+  background-position: center;
+  background-size: 30px;
   background-image: url("/src/editar.png");
   display: flex;
   height: 40px;
@@ -84,6 +85,8 @@
 }
 
 .btn-excluir {
+  background-position: center;
+  background-size: 30px;
   background-image: url("/src/deletar.png");
   display: flex;
   height: 40px;

@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html lang="p-Dr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-</head>
-<body>
-    <h1>Oiiiiii</h1>
-    
-</body>
-<script type="module" src="/scripts/cadastro.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles/globalStyle.css">
+        <link rel="stylesheet" href="/styles/cadastro.css">
+        <title>Cadastro</title>
+    </head>
+    <body>
+        <header class="header-home-cadastro">
+            <div class="container-cadastro">
+                <div class="div-icone-nome-cadastro">
+                    <img classe="imagem-icone-cadastro" src="/src/Ellipse.png" alt="">
+                    <h3 class="nome-kenzie-empresa-cadastro">Kenzie Empresas</h3>
+                </div>
+                <div class="div-header-btns-cadastro">
+                    <button id="btn-cadastro-home" class="btn-header-cadastro-home">Home</button>
+                    <button id="btn-cadastro-cadastro" class="btn-header-cadastro-login">Login</button>
+                </div>
+            </div>
+        </header>
+        <div class="div-linha-horizontal-cadastro"></div>
+        <main class="main-cadastro">
+            <div class="modal-cadastro">
+                <div class="div-modal-cadastro">
+                    <h3 class="nome-cadastro">Cadastra-se</h3>
+                    <form class="form-cadastro" id="form-cadastro">
+                        <div class="inputs-cadastro">
+                            <div>
+                                <input id="username" class="input-nome-cadastro" type="text" placeholder="Seu nome">
+                            </div>
+                            <div>
+                                <input id="email" class="input-email-cadastro" type="email" placeholder="Sua e-mail">
+
+                            </div>
+                            <div>
+                                <input id="password" class="input-password-cadastro" type="password" placeholder="Sua senha">
+                            </div>
+                            <div class="box-cadastro">
+                                <select class="select-home-cadastro" id="select-nivel-profissional">
+                                    <option class="option-select-cadastro" value="" disabled selected>Nivel profissional</option>
+                                    <option class="option-select-cadastro" value="júnior">Junior</option>
+                                    <option class="option-select-cadastro" value="pleno">Pleno</option>
+                                    <option class="option-select-cadastro" value="sênior">Senior</option>
+                                </select>
+                            </div>
+                            <div class="btns-cadastro">
+                                <button type="submit" id="btn-cadastro" class="btn-cadastro-cadastro">Cadastra-se</button>
+                                <button id="cadastra-se-pag-login" class="btn-login-cadastrar">Retornar</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </main>
+
+    </body>
+    <script type="module" src="/scripts/cadastro.js"></script>
 </html>

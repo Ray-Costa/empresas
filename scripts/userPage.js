@@ -1,7 +1,9 @@
 import {
     getInformacoesUsuario,
     atualizarInformacoesFuncionario,
-   
+    listaDeFuncionariosDoMesmoDepartamento,
+    listarEmpresas,
+
 } from "./request.js";
 
 
@@ -16,7 +18,7 @@ const tagDiv = document.getElementById("div-userP")
 const usuario = await getInformacoesUsuario();
 const renderInformUsuarioLogado = async (usuario) => {
     try {
-        
+
         const tagDivUser = document.createElement("div")
         const tagEmail = document.createElement("p")
         const tagProfissao = document.createElement("p")
@@ -127,8 +129,8 @@ const renderInformUsuarioLogado = async (usuario) => {
         tagDivUser.appendChild(tagDivBtnEditor)
         tagDivBtnEditor.appendChild(tagBtnEditor)
         tagDiv.appendChild(tagDivUser)
-     
-      
+
+
 
     } catch (error) {
         console.log(error)
@@ -138,11 +140,43 @@ const renderInformUsuarioLogado = async (usuario) => {
 await renderInformUsuarioLogado(usuario);
 
 const divNaoCon = document.getElementById("div-page-nao-contratado")
-function departamentoOuNaoContratado(usuario){
-    if(usuario.department_uuid == null){
-        
+
+const componenteListaDeColegasDoDepartamento = async () => {
+    const [funcionarios] = await listaDeFuncionariosDoMesmoDepartamento();
+    const empresas = await listarEmpresas();
+    const empresa = empresas.find(empresa => empresa.uuid = funcionarios.company_uuid);
+    let lis = ``;
+
+    funcionarios.users.forEach(funcionario => {
+        lis += `
+        <li class="li-funcionarios" id="li-funcionario-${funcionario.uuid}">
+                <div class="div-funcionario">
+                    <h4 class="nome-funcionario">${funcionario.username}</h4>
+                    <p class="descricao-funcionario">${funcionario.professional_level}</p>
+                </div>
+            </li>
+        `
+    })
+
+    const component = ` 
+    <div class="div-empresa-departamento">
+        <h2 class="h2-empresa-departamento">${empresa.name} - ${funcionarios.name}</h2>
+    </div>
+    <div class="div-lista-colegas-departamento">
+        <ul id="ul-colegas-departamento">
+            ${lis}
+        </ul>
+    </div>`
+
+    return component;
+
+}
+
+async function departamentoOuNaoContratado(usuario) {
+    if (usuario.department_uuid == null) {
+
         const divNaoContratado = document.createElement("div")
-        const  nomeNaoContratado = document.createElement("h1")
+        const nomeNaoContratado = document.createElement("h1")
 
         nomeNaoContratado.innerText = "Você ainda não foi contratado"
 
@@ -151,8 +185,9 @@ function departamentoOuNaoContratado(usuario){
 
         divNaoContratado.appendChild(nomeNaoContratado)
         divNaoCon.appendChild(divNaoContratado)
-    }else{
-        
+    } else {
+        let funcionariosComponente = await componenteListaDeColegasDoDepartamento();
+        divNaoCon.insertAdjacentHTML('beforeend', funcionariosComponente);
     }
 }
 departamentoOuNaoContratado(usuario)

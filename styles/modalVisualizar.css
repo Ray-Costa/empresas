@@ -7,7 +7,7 @@
     border-radius: 8px;
     text-align: justify;
     background-color: white;
-    min-height: 300px;
+    min-height: 550px;
     top: 18%;
 }
 
@@ -102,41 +102,4 @@
     text-align: center;
     align-self: center;
     cursor: pointer;
-}
-
-.section-funcionarios {
-    background-color: var(--cor-cinza05);
-    margin-left: 5%;
-    overflow-x: scroll;
-}
-
-.ul-render-funcionarios {
-    display: flex;
-    flex-flow: row;
-}
-
-.div-funcionario {
-    margin-top: 7px;
-    width: 250px;
-    display: flex;
-    flex-flow: column;
-}
-
-.nome-funcionario,
-.descricao-funcionario {
-    font-size: 13px;
-    margin-left: 10px;
-    margin-top: 10px;
-}
-
-.div-lista-funcionarios {
-    margin-bottom: 30px;
-}
-
-.li-funcionarios {
-    background-color: var(--cor-branco);
-    list-style: none;
-    justify-content: center;
-    margin-top: 30px;
-    margin-left: 25px;
 }

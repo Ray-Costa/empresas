@@ -41,9 +41,6 @@ form.addEventListener("submit", async (evento) => {
         } else {
             window.location.href = "/pages/userPage/userPage.html"
         }
-
-
-
     } catch (error) {
         console.error(error);
         statusSenhaIncorreta.classList.remove('display-none')

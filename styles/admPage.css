@@ -1,44 +1,70 @@
-.header-user-admin{
+.header-user-admin {
     height: 60px;
     display: flex;
 
 }
-.container-user-admin{
+
+.container-user-admin {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: row;
     justify-content: space-between;
-    width: 100%; 
+    width: 100%;
 
 }
-.div-icone-nome-user-admin{
+
+.div-icone-nome-user-admin {
     display: flex;
     gap: 10px;
 
 }
-.imagem-icone-user-admin{
 
-}
-.nome-kenzie-empresa-user-admin{
+.imagem-icone-user-admin {}
+
+.nome-kenzie-empresa-user-admin {
     font-size: 13px;
 
 }
-.div-header-btn-user-admin{
 
+.div-header-btn-user-admin {}
 
-}
-.btn-header-logout-user-admin{
+.btn-header-logout-user-admin {
     width: 90px;
     height: 30px;
     cursor: pointer;
     color: var(--cor-alert1);
     border: 1px solid var(--cor-alert1);
     background-color: #FFFFFF;
-    cursor: pointer; 
+    cursor: pointer;
 
 }
-.div-linha-horizontal-login-adm-page{
-    background-color:rgb(239, 236, 236);
+
+.div-linha-horizontal-login-adm-page {
+    background-color: rgb(239, 236, 236);
     height: 2px;
+}
+
+.div-section-departamento-usuario-cadastrados {
+    background-color: var(--cor-cinza05);
+    margin-top: 15px;
+    overflow-y: scroll;
+    height: 29vh;
+}
+
+.nome-usuarios-cadastrados {
+    margin: 40px 0px 0px 0px;
+    text-align: center;
+    background-color: white;
+}
+
+.ul-render-departamento-usuarios-cadastrados {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+.section-departamento-usuarios-cadastrados{
+    
+  
+    
 }
