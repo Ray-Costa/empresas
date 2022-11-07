@@ -94,6 +94,7 @@
 
 .nome-nao-contratado {
     font-size: 25px;
+    margin: auto;
 
 }
 
@@ -142,4 +143,11 @@
 #ul-colegas-departamento {
     display: flex;
     flex-wrap: wrap;
+}
+
+.div-descricao-nao-contratado {
+    display: flex;
+    min-height: 300px;
+    justify-content: center;
+    text-align: center;
 }
